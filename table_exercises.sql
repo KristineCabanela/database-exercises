@@ -1,5 +1,5 @@
 -- Use the employees database
-USE employees;
+SHOW tables;
 
 -- List all the tables in the Database
 -- current_dept_emp, departments, dempt_emp, dept_emp_latest_date, dept_manager, employees, salaries, titles
