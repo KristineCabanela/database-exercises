@@ -17,7 +17,7 @@ OR first_name = 'Shridhar' AND emp_no < 20000;
 
 -- Parenthesis> NOT > AND > OR
 
-SELECT (2 + 4) * 3
+SELECT (2 + 4) * 3;
 
 
 
@@ -47,3 +47,48 @@ WHERE first_name LIKE 'eb%'
 AND NOT first_name LIKE '%e'
 
 -- order by
+use employees;
+
+SELECT first_name, last_name
+FROM employees
+WHERE gender = 'F'
+ORDER BY last_name DESC;
+
+-- 120051 rows
+
+
+-- Return first_name and last_names for all employees ordered by last_name and then first_name (chaining)
+SELECT first_name, last_name
+FROM employees
+WHERE gender = 'F'
+ORDER BY last_name ASC, first_name DESC;
+
+
+-- LIMIT AND offset
+-- limits the number of results returned to a number you specify
+
+-- SELECT columns from table limit count [offset count];
+
+-- return 10 records for employees whose first name starts with M
+
+SELECT * FROM employees
+WHERE gender = 'M'
+ORDER BY last_name
+limit 5;
+
+-- Adding an OFFSET tells MySQL which row to start retrieving data. e.g. offset 5 means skip first 5 rows.
+
+SELECT * FROM employees
+WHERE gender = 'M'
+ORDER BY last_name
+limit 5 OFFSET 10;
+
+-- or
+
+SELECT * FROM employees
+WHERE gender = 'M'
+ORDER BY last_name
+limit 10,5;
+
+-- Return 11th to 15th records for employees whose first_name starts with M when sorted in ascending order by first_name
+
