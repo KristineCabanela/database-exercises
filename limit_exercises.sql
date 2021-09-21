@@ -44,14 +44,14 @@ LIMIT 5;
 
 SELECT *
 FROM employees
-limit 5 offset 50;
+limit 5 offset 45;
 
 /*- Names of 10th page of results
-1. Hidefumi Caine
-2. Heping Nitsch
-3. Sanjiv Zshoche
-4. Mayumi Schueller
-5. Georgy Dredge
+1. Lucien Rosenbaum
+2. Zvonko Nyanchama
+3. Florian Syrotiuk
+4. Basil Tramer
+5. Yinghua Dredge
 
 
 -- 5. LIMIT and OFFSET can be used to create multiple pages of data. What is the relationship between OFFSET (number of results to skip), LIMIT (number of results per page), and the page number?
