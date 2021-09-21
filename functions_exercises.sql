@@ -180,3 +180,37 @@ ORDER BY birth_date desc, hire_date asc;
 -- number of employees returned: 362
 -- oldest employee who was hired last: Khun Bernini
 -- youngest employee who was hired first: Douadi Pettis
+
+
+-- ### FUNCTIONS EXERCISES ###
+
+-- 2. Write a query to to find all employees whose last name starts and ends with 'E'. Use concat() to combine their first and last name together as a single column named full_name.
+
+SELECT (concat(first_name, last_name)) as full_name
+FROM employees
+WHERE first_name like '%e%';
+
+-- 3. Convert the names produced in your last query to all uppercase.
+
+SELECT upper(concat(first_name, last_name)) as full_name
+FROM employees
+WHERE first_name like '%e%';
+
+-- 4. Find all employees hired in the 90s and born on Christmas. Use datediff() function to find how many days they have been working at the company (Hint: You will also need to use NOW() or CURDATE()),
+
+SELECT DATEDIFF(hire_date,curdate())
+FROM employees
+WHERE hire_date LIKE '199%'
+AND birth_date LIKE '%12-25';
+
+-- 5. Find the smallest and largest current salary from the salaries table.
+
+SELECT min(salary) from salaries;
+SELECT max(salary) from salaries;
+
+
+-- 6. Use your knowledge of built in SQL functions to generate a username for all of the employees. A username should be all lowercase, and consist of the first character of the employees first name, the first 4 characters of the employees last name, an underscore, the month the employee was born, and the last two digits of the year that they were born. Below is an example of what the first 10 rows will look like:
+
+SELECT lower(concat(first_name, last_name, '_', month(`birth_date`),(year(`birth_date`))))
+FROM employees 
+limit 10;
