@@ -146,7 +146,7 @@ ON dept_emp.dept_no = departments.dept_no
 WHERE departments.dept_name = 'Marketing'
 AND dept_emp.to_date > CURDATE()
 AND salaries.to_date > CURDATE()
-ORDER BY salaries.salary DESC;
+ORDER BY salary DESC;
 
 
 -- 9. Which current department manager has the highest salary?
@@ -155,8 +155,10 @@ SELECT employees.first_name, employees.last_name, salaries.salary, departments.d
 FROM employees
 JOIN dept_manager 
 ON employees.emp_no = dept_manager.emp_no
-AND to_date > CURDATE()
 JOIN salaries 
 ON employees.emp_no = salaries.emp_no
-AND salaries.to_date > CURDATE()
-JOIN departments USING(dept_no);
+JOIN departments USING(dept_no)
+WHERE dept_manager.to_date > CURDATE()
+AND salaries.to_date > CURDATE();
+
+
