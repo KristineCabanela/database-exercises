@@ -130,7 +130,8 @@ ON dept_emp.dept_no = departments.dept_no
 WHERE dept_emp.to_date > CURDATE()
 AND salaries.to_date > CURDATE()
 GROUP BY departments.dept_name
-ORDER BY average_salary DESC;
+ORDER BY average_salary DESC
+LIMIT 1;
 
 
 

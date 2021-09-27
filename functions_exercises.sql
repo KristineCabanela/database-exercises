@@ -184,6 +184,12 @@ ORDER BY birth_date desc, hire_date asc;
 
 -- ### FUNCTIONS EXERCISES ###
 
+-- 1.
+SELECT concat(first_name, ' ', last_name) as full_name 
+from employees 
+where first_name like '%e%';
+
+
 -- 2. Write a query to to find all employees whose last name starts and ends with 'E'. Use concat() to combine their first and last name together as a single column named full_name.
 
 SELECT (concat(first_name, last_name)) as full_name
@@ -201,7 +207,8 @@ WHERE first_name like '%e%';
 SELECT DATEDIFF(hire_date,curdate())
 FROM employees
 WHERE hire_date LIKE '199%'
-AND birth_date LIKE '%12-25';
+AND birth_date LIKE '%-12-25';
+
 
 -- 5. Find the smallest and largest current salary from the salaries table.
 
@@ -209,8 +216,11 @@ SELECT min(salary) from salaries;
 SELECT max(salary) from salaries;
 
 
+
+
+
 -- 6. Use your knowledge of built in SQL functions to generate a username for all of the employees. A username should be all lowercase, and consist of the first character of the employees first name, the first 4 characters of the employees last name, an underscore, the month the employee was born, and the last two digits of the year that they were born. Below is an example of what the first 10 rows will look like:
 
-SELECT lower(concat(first_name, last_name, '_', month(`birth_date`),(year(`birth_date`))))
-FROM employees 
+SELECT lower(concat(first_name, last_name, '_', month(`birth_date`),year(`birth_date`)))
+FROM employees
 limit 10;

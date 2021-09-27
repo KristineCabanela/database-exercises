@@ -2,8 +2,6 @@
 SHOW databases;
 USE albums_db;
 
--- What is the oldest release date for any album in the albums table? What is the most recent release date?
-
 
 -- Explore the structure of the albums table.
 DESCRIBE albums;
@@ -11,12 +9,12 @@ DESCRIBE albums;
 
 -- a. How many rows are in the albums table?
 SELECT id from albums;
+
+SELECT *FROM albums;
 --shows 31
 
 
 -- How many unique artist names are in the albums table?
-USE albums_db;
-DESCRIBE albums;
 SELECT DISTINCT artist
 FROM albums;
 
@@ -50,7 +48,7 @@ WHERE name = "nevermind";
 -- d. Which albums were released in the 1990s
 SELECT name
 FROM albums
-WHERE = "release_date" > 1990;
+WHERE release_date BETWEEN 1990 AND 1999;
 
 
 -- e. Which albums had less than 20 million certified sales
@@ -62,3 +60,8 @@ WHERE "certified sales" < 20;
 SELECT name
 FROM albums
 WHERE genre = "Rock";
+
+SELECT name
+FROM albums
+WHERE genre like = "%Rock%"";
+
