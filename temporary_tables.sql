@@ -1,0 +1,1 @@
+-- Creating temporary tables- Monday afternoon exercises
