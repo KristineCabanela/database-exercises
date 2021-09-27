@@ -24,6 +24,31 @@ WHERE first_name = 'Aamod');
 
 -- 3. How many people in the employees table are no longer working for the company? Give the answer in a comment in your code.
 
+SELECT *
+FROM employees
+WHERE emp_no NOT IN (
+SELECT emp_no
+FROM salaries
+WHERE to_date > CURDATE()
+);
 
 
--- 4. 
+-- 4.  Find all the current department managers that are female. List their names in a comment in your code.
+
+SELECT first_name, last_name
+FROM employees
+WHERE gender = 'F'
+AND emp_no IN(
+SELECT emp_no
+FROM dept_manager
+WHERE to_date > CURDATE()
+);
+
+
+-- 5. Find all the employees who currently have a higher salary than the companies overall, historical average salary.
+
+
+
+-- 6. How many current salaries are within 1 standard deviation of the current highest salary? (Hint: you can use a built in function to calculate the standard deviation.) What percentage of all salaries is this?
+
+
