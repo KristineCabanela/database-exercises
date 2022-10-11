@@ -1,8 +1,10 @@
--- Use the employees database
+--for SQL TABLES exercises
+-- Use the employees database, show sql query:
 USE employees;
 
 -- List all the tables in the Database
 SHOW tables;
+
 -- current_dept_emp, departments, dempt_emp, dept_emp_latest_date, dept_manager, employees, salaries, titles
 
 -- What dataypes are in the employees table?
